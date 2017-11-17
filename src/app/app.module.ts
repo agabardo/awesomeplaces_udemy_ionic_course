@@ -11,6 +11,7 @@ import {AddPlacePage} from "../pages/add-place/add-place";
 import {SetLocationPage} from "../pages/set-location/set-location";
 import {AgmCoreModule} from "angular2-google-maps/esm/core";
 
+
 @NgModule({
   declarations: [
     MyApp,
