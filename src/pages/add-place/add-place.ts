@@ -26,6 +26,11 @@ export class AddPlacePage {
   onOpenMap(){
     const modal = this.modalCtr.create(SetLocationPage , {location:this.location});
     modal.present();
+    modal.onDidDismiss(data => {
+      this.location.lat = data.location.lat;
+      this.location.lng = data.location.lng;
+      console.log(data);
+    });
   }
 
 }
