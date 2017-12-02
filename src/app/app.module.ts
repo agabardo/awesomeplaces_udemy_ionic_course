@@ -10,6 +10,7 @@ import {PlacePage} from "../pages/place/place";
 import {AddPlacePage} from "../pages/add-place/add-place";
 import {SetLocationPage} from "../pages/set-location/set-location";
 import {AgmCoreModule} from "angular2-google-maps/esm/core";
+import {PlacesService} from "../services/places";
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {AgmCoreModule} from "angular2-google-maps/esm/core";
   providers: [
     StatusBar,
     SplashScreen,
+    PlacesService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AddPlacePage} from "../add-place/add-place";
+import {Place} from "../../models/place";
+import {PlacesService} from "../../services/places";
 
-/**
- * Generated class for the HomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -15,14 +12,14 @@ import {AddPlacePage} from "../add-place/add-place";
   templateUrl: 'home.html',
 })
 export class HomePage {
-
+  places:Place[] = [];
   addPlacePage = AddPlacePage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private placesSrc:PlacesService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+  ionViewWillEnter(){
+    this.places = this.placesSrc.loadPlaces();
   }
 
 }

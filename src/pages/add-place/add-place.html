@@ -43,8 +43,8 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
-        <img [src]="">
+      <ion-col *ngIf="imageURL != ''">
+        <img [src]="imageURL">
       </ion-col>
     </ion-row>
   </ion-grid>
