@@ -15,6 +15,7 @@ export class AddPlacePage {
     lat: -32.928669,
     lng: 151.776249
   }
+  locationIsSet = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private modalCtr:ModalController) {
   }
@@ -24,12 +25,19 @@ export class AddPlacePage {
   }
 
   onOpenMap(){
-    const modal = this.modalCtr.create(SetLocationPage , {location:this.location});
+    const modal = this.modalCtr.create(SetLocationPage , {location:this.location, isSet:this.locationIsSet});
     modal.present();
     modal.onDidDismiss(data => {
-      this.location.lat = data.location.lat;
-      this.location.lng = data.location.lng;
-      console.log(data);
+      if(data) {
+        /*
+        this.location.lat = data.location.lat;
+        this.location.lng = data.location.lng;
+        console.log(data);
+        */
+        this.location = data.location;
+        this.locationIsSet = true;
+        console.log("OK");
+      }
     });
   }
 
